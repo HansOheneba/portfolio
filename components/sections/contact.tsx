@@ -39,22 +39,21 @@ Best regards,
     <section id="contact" className="scroll-mt-32 bg-black py-24 mx-auto">
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
         <h2 className="text-3xl font-semibold text-white sm:text-4xl">
-          Let’s Build Something Secure & Beautiful
+          Beautiful Interfaces. Bulletproof Foundations.
         </h2>
 
         <p className="mt-4 text-white/65">
-          I design modern front-end systems with security built in from the
-          start. Whether you are hiring, collaborating, or exploring an idea, I
-          would love to hear from you.
+          I craft front-end experiences that look effortless and think
+          defensively. If you are partnering, or exploring something
+          ambitious, I am ready to build it with you.
         </p>
-
         <div className="mt-10 flex items-center justify-center gap-3">
           <a
             href={mailtoLink}
             className="inline-flex items-center gap-3 rounded-2xl bg-white px-6 py-3 text-sm font-medium text-black transition hover:bg-white/90"
           >
             <FontAwesomeIcon icon={faPaperPlane} className="h-4 w-4" />
-            Send Me an Email
+            Shoot Me an Email
           </a>
           <a
             href="https://wa.me/233592076527"

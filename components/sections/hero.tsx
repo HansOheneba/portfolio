@@ -4,18 +4,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faDownload } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowRight,
+  faDownload,
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
 
 type HeroProps = {
-  step?: string;
-  eyebrow?: string; 
-  title?: string; 
-  blurb?: string;
-  primaryCtaLabel?: string;
-  primaryCtaHref?: string; 
-  secondaryCtaLabel?: string;
-  cvHref?: string; 
-  imageSrc?: string;
+  primaryCtaHref?: string;
+  cvHref?: string;
+  projectImage1?: string;
+  projectImage2?: string;
+  projectImage3?: string;
 };
 
 function cn(...classes: Array<string | false | null | undefined>) {
@@ -23,105 +23,126 @@ function cn(...classes: Array<string | false | null | undefined>) {
 }
 
 export default function Hero({
-  title = "Hans Opoku",
-  blurb = "I am building modern front-end experiences with secure defaults, clean design systems, and performance-first execution.",
-  primaryCtaLabel = "Get in touch",
-  primaryCtaHref = "#contact",
-  secondaryCtaLabel = "Download CV",
+  primaryCtaHref = "#projects",
   cvHref = "https://docs.google.com/document/d/1SkR03pjMKOKuxSXT2qC__iFoGoVD5mwR/edit?usp=sharing&ouid=107804991562370370216&rtpof=true&sd=true",
-  imageSrc = "/hero.jpg",
+  projectImage1 = "/projects/proj1.png",
+  projectImage2 = "/projects/proj2.png",
+  projectImage3 = "/projects/proj3.png",
 }: HeroProps) {
   return (
     <section
       id="top"
-      className="bg-white w-full py-10 sm:py-12 lg:py-16 mx-auto"
       aria-label="Hero"
+      className="w-full bg-[#efefe9] text-black"
     >
-      <div className="mx-auto w-full  px-4 sm:px-6">
-        <div
-          className={cn(
-            "relative overflow-hidden ",
+      <div className="mx-auto max-w-7xl px-4 pb-14 pt-12 sm:px-6 sm:pb-20 sm:pt-16 lg:pb-24 lg:pt-20">
+        {/* Intro Tagline */}
+        <div className="mx-auto max-w-3xl text-center">
+          <h1 className="mt-6 font-serif text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+            Leave Nothing to Chance.
+            <br />
+          </h1>
 
-          )}
-        >
-          {/* subtle edge glow */}
-       
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-black/65 sm:text-lg">
+            I am <span className="font-semibold text-black">Hans Opoku</span>, a
+            developer building modern, secure, and scalable web systems.
+            Thoughtful interfaces. Clean architecture. Security by default.
+          </p>
 
-          <div className="relative grid gap-6 p-6 sm:p-8 lg:grid-cols-2 lg:gap-10 lg:p-10 max-w-7xl mx-auto">
-            {/* Left */}
-            <div className="flex flex-col justify-center">
-              <h1 className="mt-4 text-4xl font-semibold leading-[1.05] text-black sm:text-5xl">
-                {title}
-              </h1>
+          {/* Location highlight */}
+          <div className="mt-4 flex items-center justify-center gap-2 text-sm font-medium text-black/80">
+            <FontAwesomeIcon
+              icon={faLocationDot}
+              className="h-4 w-4 text-orange-500"
+            />
+            <span>
+              Based in{" "}
+              <span className="font-semibold text-black">Accra, Ghana</span>
+            </span>
+          </div>
 
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-black/65 sm:text-lg">
-                {blurb}
-              </p>
+          {/* CTA row */}
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            {/* Primary */}
+            <Link
+              href={primaryCtaHref}
+              className={cn(
+                "group inline-flex h-12 items-center gap-3 rounded-2xl px-6",
+                "bg-purple-800 text-sm font-semibold text-white shadow-sm",
+                "transition hover:bg-purple-900",
+                "focus:outline-none focus:ring-2 focus:ring-purple-500/30",
+              )}
+            >
+              <span>View Projects</span>
+              <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
+            </Link>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                {/* Primary */}
-                <Link
-                  href={primaryCtaHref}
-                  className={cn(
-                    "inline-flex items-center justify-center gap-3 rounded-2xl",
-                    "bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/90",
-                    "focus:outline-none focus:ring-2 focus:ring-white/30",
-                  )}
-                >
-                  {primaryCtaLabel}
-                  <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
-                </Link>
+            {/* Secondary */}
+            <a
+              href={cvHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "inline-flex h-12 items-center gap-3 rounded-2xl px-6",
+                "border border-black/10 bg-white/60",
+                "text-sm font-semibold text-black/85",
+                "transition hover:bg-white/80",
+                "focus:outline-none focus:ring-2 focus:ring-black/10",
+              )}
+            >
+              <FontAwesomeIcon icon={faDownload} className="h-4 w-4" />
+              <span>Download CV</span>
+            </a>
+          </div>
+        </div>
 
-                {/* Secondary */}
-                <a
-                  href={cvHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(
-                    "inline-flex items-center justify-center gap-3 rounded-2xl",
-                    "border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-black/85",
-                    "transition hover:bg-black/50 hover:text-white",
-                    "focus:outline-none focus:ring-2 focus:ring-white/30",
-                  )}
-                >
-                  <FontAwesomeIcon icon={faDownload} className="h-4 w-4" />
-                  {secondaryCtaLabel}
-                </a>
-              </div>
-            </div>
+        {/* Showcase Panel */}
+        <div className="relative mx-auto mt-14 max-w-6xl">
+          <div className="relative overflow-hidden rounded-[34px] bg-white/40 p-6 sm:p-8">
+            <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent" />
 
-            {/* Right */}
-            <div className="relative">
-              <div
-                className={cn(
-                  "relative aspect-4/3 w-full overflow-hidden rounded-[26px]",
-                  "border border-white/10 bg-white/5",
-                )}
-              >
-                <Image
-                  src={imageSrc}
-                  alt="Featured work preview"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-center opacity-90"
-                  priority
-                />
-
-                {/* overlay gradient */}
-                <div className="pointer-events-none absolute inset-0 bg-linear-to-tr from-black/40 via-transparent to-black/15" />
-
-                {/* center mark, optional */}
-                <div className="pointer-events-none absolute inset-0 grid place-items-center">
-                  <div className="flex items-center gap-3 opacity-90">
-                    <span className="h-10 w-10 rounded-md bg-white/90" />
-                    <span className="h-10 w-10 rounded-full bg-white/90" />
-                    <span className="h-10 w-10 rounded-full bg-white/90" />
-                  </div>
+            <div className="relative mx-auto mt-4 grid min-h-[320px] place-items-center sm:min-h-[380px] lg:min-h-[430px]">
+              {/* Left */}
+              <div className="absolute left-4 top-16 w-[38%] min-w-[220px] max-w-[360px] rotate-[-10deg] sm:left-10">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-black/5">
+                  <Image
+                    src={projectImage1}
+                    alt="Project 1"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </div>
               </div>
 
-         
+              {/* Center */}
+              <div className="relative z-10 w-[44%] min-w-[240px] max-w-[420px]">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-black/5">
+                  <Image
+                    src={projectImage2}
+                    alt="Project 2"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+
+              {/* Right */}
+              <div className="absolute right-4 top-16 w-[38%] min-w-[220px] max-w-[360px] rotate-[10deg] sm:right-10">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-black/5">
+                  <Image
+                    src={projectImage3}
+                    alt="Project 3"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
             </div>
+
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/5 to-transparent" />
           </div>
         </div>
       </div>

@@ -25,10 +25,8 @@ export default function Home() {
       <main className="flex min-h-screen w-full  flex-col items-center justify-between sm:items-start">
         <Hero
   
-      
-          title="Hans Opoku"
-          blurb="I am building modern front-end experiences with secure defaults, clean design systems, and performance-first execution."
-        />
+    
+/>
   <TechStackStrip />
   <ExperienceTimeline />
   <CertificationsSection />

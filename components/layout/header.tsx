@@ -64,7 +64,7 @@ export default function SiteHeader({
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         {/* Brand */}
         <Link
-          href="#top"
+          href="/"
           className="group inline-flex items-center gap-3 rounded-xl px-2 py-1 transition hover:bg-white/5"
           aria-label={`${name} home`}
         >

@@ -1,6 +1,8 @@
 'use client';
 
+import CertificationsSection from "@/components/sections/certifications";
 import ContactSection from "@/components/sections/contact";
+import ExperienceTimeline from "@/components/sections/expereinces";
 import Hero from "@/components/sections/hero";
 import TechStackStrip from "@/components/sections/techStackStrip";
 import { useEffect } from "react";
@@ -28,6 +30,8 @@ export default function Home() {
           blurb="I am building modern front-end experiences with secure defaults, clean design systems, and performance-first execution."
         />
   <TechStackStrip />
+  <ExperienceTimeline />
+  <CertificationsSection />
         <ContactSection email="hansoheneba.io@gmail.com" />
       </main>
     </div>

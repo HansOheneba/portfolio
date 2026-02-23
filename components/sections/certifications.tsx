@@ -4,7 +4,6 @@ import * as React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import { HiArrowNarrowRight } from "react-icons/hi";
 import { SiCoursera, SiGoogle, SiIsc2, SiCisco } from "react-icons/si";
 
 type CertCategory =
@@ -113,8 +112,6 @@ function cn(...classes: Array<string | false | null | undefined>) {
 }
 
 function IssuerLogo({ issuerKey }: { issuerKey: IssuerKey }) {
-  // Using react-icons for widely available logos. For issuers without icons,
-  // we render a clean monogram badge to keep the layout consistent.
   const commonClass = "h-5 w-5";
 
   switch (issuerKey) {
@@ -128,10 +125,7 @@ function IssuerLogo({ issuerKey }: { issuerKey: IssuerKey }) {
       return <SiCisco className={commonClass} aria-hidden="true" />;
     default:
       return (
-        <span
-          className="text-[10px] font-semibold text-gray-700"
-          aria-hidden="true"
-        >
+        <span className="text-[10px] font-semibold text-gray-700" aria-hidden>
           {issuerKey === "African Union"
             ? "AU"
             : issuerKey === "ALX"
@@ -146,8 +140,9 @@ function IssuerBadge({ issuerKey }: { issuerKey: IssuerKey }) {
   return (
     <div
       className={cn(
-        "flex h-9 w-9 items-center justify-center rounded-lg border border-gray-200 bg-white",
+        "flex h-10 w-10 items-center justify-center rounded-xl border border-gray-200 bg-white",
         "text-gray-700 shadow-[0_1px_0_rgba(0,0,0,0.04)]",
+        "sm:h-9 sm:w-9",
       )}
       title={issuerKey}
     >
@@ -161,31 +156,31 @@ function CertCard({ cert }: { cert: Cert }) {
     <motion.div
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.35 }}
       className={cn(
-        "group relative rounded-xl border border-gray-200 bg-white p-5",
+        "group relative rounded-2xl border border-gray-200 bg-white p-4 sm:p-5",
         "shadow-sm transition hover:shadow-md",
       )}
     >
       {/* soft glow hover */}
-      <div className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div className="h-full w-full rounded-xl bg-[radial-gradient(circle_at_40%_20%,rgba(99,102,241,0.14),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div className="h-full w-full rounded-2xl bg-[radial-gradient(circle_at_40%_20%,rgba(99,102,241,0.14),transparent_60%)]" />
       </div>
 
-      <div className="relative z-10 flex items-start justify-between gap-4">
+      <div className="relative z-10 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
         <div className="flex min-w-0 items-start gap-3">
-          {/* Logo spot */}
           <IssuerBadge issuerKey={cert.issuerKey} />
 
           <div className="min-w-0">
-            <div className="flex items-center gap-2">
-              <h3 className="truncate text-sm font-semibold text-gray-900">
+            <div className="flex flex-wrap items-center gap-2">
+              <h3 className="min-w-0 break-words text-sm font-semibold text-gray-900 sm:truncate">
                 {cert.title}
               </h3>
+
               {cert.highlight ? (
                 <span className="shrink-0 rounded-full border border-indigo-200 bg-indigo-50 px-2 py-0.5 text-[10px] font-medium text-indigo-700">
-                 ISC2 Member
+                  ISC2 Member
                 </span>
               ) : null}
             </div>
@@ -201,9 +196,10 @@ function CertCard({ cert }: { cert: Cert }) {
           target="_blank"
           rel="noreferrer"
           className={cn(
-            "inline-flex shrink-0 items-center gap-1 rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-medium text-gray-800",
+            "inline-flex w-full items-center justify-center gap-1 rounded-xl border border-gray-200 bg-gray-50 px-3 py-2 text-xs font-medium text-gray-800",
             "transition hover:bg-gray-100",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300",
+            "sm:w-auto sm:justify-start sm:px-2.5 sm:py-1",
           )}
           aria-label={`View ${cert.title} in a new tab`}
         >
@@ -218,14 +214,12 @@ function CertCard({ cert }: { cert: Cert }) {
 export default function CertificationsSection() {
   const grouped = certs.reduce(
     (acc, cert) => {
-      acc[cert.category] = acc[cert.category] || [];
-      acc[cert.category].push(cert);
+      (acc[cert.category] ||= []).push(cert);
       return acc;
     },
     {} as Record<CertCategory, Cert[]>,
   );
 
-  // Keep category ordering stable (instead of Object.entries default order)
   const categoryOrder: CertCategory[] = [
     "Security & Risk",
     "Engineering & UX",
@@ -234,20 +228,21 @@ export default function CertificationsSection() {
   ];
 
   return (
-    <section id="certifications" className="w-full bg-gray-50 py-16">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-10 flex items-end justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900">
+    <section
+      id="certifications"
+      className="w-full bg-gray-50 py-12 sm:py-16 lg:py-20"
+    >
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 flex flex-col gap-3 sm:mb-10 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
+          <div className="max-w-2xl">
+            <h2 className="text-2xl font-semibold text-gray-900 sm:text-3xl">
               Certifications
             </h2>
-            <p className="mt-2 text-sm text-gray-600">
+            <p className="mt-2 text-sm leading-relaxed text-gray-600 sm:text-base">
               Verified credentials across security, engineering, AI, and
               leadership.
             </p>
           </div>
-
-         
         </div>
 
         <div className="grid gap-10">
@@ -257,11 +252,15 @@ export default function CertificationsSection() {
 
             return (
               <div key={category}>
-                <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-gray-500">
-                  {category}
-                </h3>
+                <div className="mb-4 flex items-center justify-between gap-4">
+                  <h3 className="text-xs font-semibold uppercase tracking-wide text-gray-500 sm:text-sm">
+                    {category}
+                  </h3>
 
-                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="h-px flex-1 bg-gray-200/70" />
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {items.map((cert) => (
                     <CertCard key={`${cert.title}-${cert.date}`} cert={cert} />
                   ))}

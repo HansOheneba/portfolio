@@ -23,7 +23,7 @@ function cn(...classes: Array<string | false | null | undefined>) {
 }
 
 export default function Hero({
-  primaryCtaHref = "#projects",
+  primaryCtaHref = "/projects",
   cvHref = "https://docs.google.com/document/d/1SkR03pjMKOKuxSXT2qC__iFoGoVD5mwR/edit?usp=sharing&ouid=107804991562370370216&rtpof=true&sd=true",
   projectImage1 = "/projects/proj1.png",
   projectImage2 = "/projects/proj2.png",

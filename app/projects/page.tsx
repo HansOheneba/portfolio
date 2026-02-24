@@ -21,15 +21,15 @@ const projects: Project[] = [
     height: "short",
   },
   {
-    slug: "celerey-trial-onboarding",
-    title: "Celerey Trial Onboarding",
+    slug: "midnight",
+    title: "Midnight Madness",
     summary: "Onboarding and upgrade flow with conversion-focused UX.",
     image: "/projects/celerey.jpg",
     span: "wide",
     height: "short",
   },
   {
-    slug: "airban-doors-platform",
+    slug: "airban",
     title: "Airban Doors Platform",
     summary: "E-commerce flows with strong data integrity and admin tooling.",
     image: "/projects/airban.jpg",
@@ -37,7 +37,7 @@ const projects: Project[] = [
     height: "short",
   },
   {
-    slug: "bubble-bliss-ordering",
+    slug: "bubble",
     title: "Bubble Bliss Ordering",
     summary: "Cart, checkout, and ordering experience for a food brand.",
     image: "/projects/bubblebliss.jpg",
@@ -107,7 +107,7 @@ export default function ProjectsPage() {
               <div className="relative w-full p-4 sm:p-5">
                 <div
                   className={cn(
-                    "inline-flex max-w-full flex-col gap-1 bg-gradient-to-t from-black/55 via-transparent to-transparent px-3 py-2",
+                    "inline-flex max-w-full flex-col gap-1 bg-gradient-to-t from-black/55 via  to-transparent px-3 py-2",
                     "backdrop-blur-md transition",
                     "opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0",
                   )}

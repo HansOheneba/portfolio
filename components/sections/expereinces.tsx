@@ -23,31 +23,30 @@ type TimelineEntry = {
 };
 
 const timeline: TimelineEntry[] = [
-
   {
     time: "2020–2022",
-    title: "Building web foundations",
-    body: "I am building my early front-end muscle with HTML, CSS, and JavaScript, focusing on clean UI and solid fundamentals.",
+    title: "Building Web Foundations",
+    body: "Built my early front-end muscle with HTML, CSS, and JavaScript, focusing on clean UI and solid fundamentals.",
   },
   {
     time: "Sept 2023 — Oct 2023",
     title: "Website Development Tutor",
-    body: "I am teaching web fundamentals and guiding learners through practical projects that help them ship confidently.",
+    body: "Taught web fundamentals and guided learners through practical projects that helped them ship confidently.",
   },
   {
     time: "June 2023 — June 2024",
     title: "Software Development Intern • Suku Technologies",
-    body: "I am contributing to product work and improving user-facing experiences, supporting API integration and UI updates.",
+    body: "Contributed to product work and improved user-facing experiences, supporting API integrations and UI updates.",
   },
   {
     time: "Sept 2024 — Jan 2026",
     title: "Security Analyst • Margins ID Group",
-    body: "I am working close to real threats and real systems, bringing security-minded thinking into how products are being built.",
+    body: "Worked close to real threats and real systems, bringing security-minded thinking into how products were built.",
   },
   {
     time: "Jan 2026 — Present",
     title: "Front-End Engineer • Celerey",
-    body: "I am building responsive Next.js UI, maintaining design consistency, and improving performance across key user journeys.",
+    body: "Building responsive interfaces, maintaining design consistency, and improving performance across key user journeys.",
     cta: {
       label: "View my work",
       href: "/projects",

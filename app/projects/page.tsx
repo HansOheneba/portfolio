@@ -7,8 +7,8 @@ type Project = {
   title: string;
   summary: string;
   image: string;
-  span?: "normal" | "wide";
-  height?: "short" | "tall";
+  colSpan?: string;
+  rowSpan?: string;
 };
 
 const projects: Project[] = [
@@ -17,52 +17,37 @@ const projects: Project[] = [
     title: "Airban Homes",
     summary: "E-commerce flows with strong data integrity and admin tooling.",
     image: "/projects/airban.png",
-    span: "wide",
-    height: "short",
+    colSpan: "lg:col-span-2",
+    rowSpan: "lg:row-span-2",
   },
   {
     slug: "midnight",
     title: "Midnight Madness",
     summary:
-      "Event landing, ticket selection, and checkout flow for a Halloween party, paired with an admin dashboard for payments and entry control.",
+      "Event landing, ticket selection, and checkout flow with admin dashboard.",
     image: "/projects/mm3.png",
-    span: "normal",
-    height: "short",
   },
-//   {
-//     slug: "wealth-overview-dashboard",
-//     title: "Wealth Overview Dashboard",
-//     summary: "Front-end dashboard UI with insights and clean data visuals.",
-//     image: "/projects/wealth-dashboard.jpg",
-//     span: "normal",
-//     height: "short",
-//   },
-{
-  slug: "liftoff",
-  title: "Liftoff",
-  summary:
-    "Design-forward wedding website with RSVP management, photo gallery, event timeline, and seamless guest coordination.",
-  image: "/projects/lift.png",
-  span: "normal",
-  height: "short",
-},
+  {
+    slug: "liftoff",
+    title: "Liftoff",
+    summary:
+      "Design-forward wedding website with RSVP management and guest coordination.",
+    image: "/projects/lift.png",
+  },
   {
     slug: "bubble",
     title: "Bubble Bliss Cafe",
     summary:
-      "Mobile and desktop ordering flow with fast cart edits, structured checkout, Hubtel SMS confirmations, and an admin dashboard.",
+      "Ordering flow with cart edits, structured checkout, Hubtel SMS and admin dashboard.",
     image: "/projects/bb.png",
-    span: "wide",
-    height: "short",
+    colSpan: "lg:col-span-2",
   },
   {
     slug: "hn",
     title: "H&M",
     summary:
-      "Custom wedding platform with RSVP tracking, event scheduling, countdown timers, and a polished guest journey.",
+      "Custom wedding platform with RSVP tracking and polished guest journey.",
     image: "/projects/hn.png",
-    span: "wide",
-    height: "short",
   },
 ];
 
@@ -72,10 +57,10 @@ function cn(...classes: Array<string | false | null | undefined>) {
 
 export default function ProjectsPage() {
   return (
-    <div className="bg-white py-10 sm:py-12 lg:py-16">
+    <div className="bg-white py-12 lg:py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {/* Heading */}
-        <div className="mb-6 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex flex-col gap-3">
             <h1 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
               Projects
@@ -96,17 +81,16 @@ export default function ProjectsPage() {
           </Link>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6">
+        {/* Bento Grid */}
+        <div className="grid auto-rows-[180px] grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:auto-rows-[220px]">
           {projects.map((p) => (
             <Link
               key={p.slug}
               href={`/projects/${p.slug}`}
               className={cn(
-                "group relative flex items-end overflow-hidden rounded-3xl border border-slate-200 bg-white",
-                "shadow-sm transition hover:shadow-lg",
-                p.span === "wide" ? "sm:col-span-2" : "sm:col-span-1",
-                p.height === "tall" ? "h-64 sm:h-96" : "h-48 sm:h-72",
+                "group relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:shadow-xl",
+                p.colSpan,
+                p.rowSpan,
               )}
             >
               {/* Image */}
@@ -114,27 +98,26 @@ export default function ProjectsPage() {
                 src={p.image}
                 alt={p.title}
                 fill
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"
-                className="object-cover object-center transition duration-300 group-hover:scale-105"
+                className="object-cover transition duration-500 group-hover:scale-105"
               />
 
-              {/* Always-on dark gradient */}
+              {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition group-hover:from-black/90 group-hover:via-black/60" />
 
-              {/* Text Content */}
-              <div className="relative w-full p-4">
-                <div className="flex flex-col gap-1">
-                  <span className="text-sm font-semibold text-white sm:text-base">
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col justify-end p-4 text-white">
+                <div className="space-y-1">
+                  <h2 className="text-sm font-semibold sm:text-base">
                     {p.title}
-                  </span>
-                  <span className="text-xs text-white/80 sm:text-sm">
+                  </h2>
+                  <p className="text-xs text-white/80 sm:text-sm">
                     {p.summary}
-                  </span>
+                  </p>
                 </div>
 
-                <div className="mt-3 flex items-center justify-between">
-                  <span className="text-xs text-white/70">View project</span>
-                  <span className="text-sm text-white transition group-hover:translate-x-0.5">
+                <div className="mt-3 flex items-center justify-between text-xs text-white/70">
+                  <span>View project</span>
+                  <span className="transition group-hover:translate-x-1">
                     →
                   </span>
                 </div>

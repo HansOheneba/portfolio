@@ -8,7 +8,7 @@ type Tech = {
 };
 
 const technologies: Tech[] = [
-  { name: "Next.js", logo: "/logos/nextjs.png" },
+  { name: "Next.js", logo: "/logos/nextjs.svg" },
   { name: "TypeScript", logo: "/logos/ts.png" },
   { name: "Laravel", logo: "/logos/laravel.jpeg" },
   { name: "GitHub", logo: "/logos/github.png" },

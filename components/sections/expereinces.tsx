@@ -151,7 +151,7 @@ export default function HansTimelineFlowbite() {
         <div className="mb-6">
           <h2 className="text-xl font-semibold text-white">My timeline</h2>
           <p className="mt-1 text-sm text-white/60">
-            Hover each milestone for a subtle glow, then keep scrolling.
+            Where my journey began and where I am headed. 
           </p>
         </div>
 

@@ -62,13 +62,15 @@ export default function ProjectsPage() {
             </h1>
 
             <p className="max-w-2xl text-white/65">
-              A selection of front-end and security-minded builds. Hover to
-              preview the title. Click to open the dedicated project page.
+              A selection of front-end and security-minded builds. Some
+              additional projects are not displayed here due to privacy and
+              confidentiality constraints. Hover to preview the title. Click to
+              open the dedicated project page.
             </p>
           </div>
 
           <Link
-            href="#contact"
+            href="/#contact"
             className="inline-flex w-fit items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white"
           >
             Reach out
@@ -131,8 +133,6 @@ export default function ProjectsPage() {
             </Link>
           ))}
         </div>
-
-       
       </div>
     </div>
   );

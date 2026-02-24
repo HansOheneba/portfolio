@@ -12,35 +12,55 @@ type Project = {
 };
 
 const projects: Project[] = [
-  {
-    slug: "wealth-overview-dashboard",
-    title: "Wealth Overview Dashboard",
-    summary: "Front-end dashboard UI with insights and clean data visuals.",
-    image: "/projects/wealth-dashboard.jpg",
-    span: "normal",
-    height: "short",
-  },
-  {
-    slug: "midnight",
-    title: "Midnight Madness",
-    summary: "Onboarding and upgrade flow with conversion-focused UX.",
-    image: "/projects/celerey.jpg",
-    span: "wide",
-    height: "short",
-  },
-  {
-    slug: "airban",
-    title: "Airban Doors Platform",
-    summary: "E-commerce flows with strong data integrity and admin tooling.",
-    image: "/projects/airban.jpg",
-    span: "wide",
-    height: "short",
-  },
+    {
+      slug: "airban",
+      title: "Airban Homes",
+      summary: "E-commerce flows with strong data integrity and admin tooling.",
+      image: "/projects/airban.png",
+      span: "wide",
+      height: "short",
+    },
+    {
+        slug: "midnight",
+        title: "Midnight Madness",
+        summary:
+        "Event landing, ticket selection, and checkout flow for a Halloween party, paired with an admin dashboard for payments and entry control.",
+        image: "/projects/mm3.png",
+        span: "normal",
+        height: "short",
+    },
+    {
+      slug: "wealth-overview-dashboard",
+      title: "Wealth Overview Dashboard",
+      summary: "Front-end dashboard UI with insights and clean data visuals.",
+      image: "/projects/wealth-dashboard.jpg",
+      span: "normal",
+      height: "short",
+    },
   {
     slug: "bubble",
-    title: "Bubble Bliss Ordering",
-    summary: "Cart, checkout, and ordering experience for a food brand.",
-    image: "/projects/bubblebliss.jpg",
+    title: "Bubble Bliss Cafe",
+    summary:
+      "Mobile and desktop ordering flow with fast cart edits, structured checkout, Hubtel SMS confirmations, and an admin dashboard.",
+    image: "/projects/bb.png",
+    span: "wide",
+    height: "short",
+  },
+  {
+    slug: "liftoff",
+    title: "Liftoff",
+    summary:
+      "Design-forward wedding website with RSVP management, photo gallery, event timeline, and seamless guest coordination.",
+    image: "/projects/lift.png",
+    span: "wide",
+    height: "short",
+  },
+  {
+    slug: "hn",
+    title: "H&M",
+    summary:
+      "Custom wedding platform with RSVP tracking, event scheduling, countdown timers, and a polished guest journey.",
+    image: "/projects/hn.png",
     span: "normal",
     height: "short",
   },
@@ -106,10 +126,10 @@ export default function ProjectsPage() {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-70 transition group-hover:opacity-90" />
 
               {/* Hover overlay content */}
-              <div className="relative w-full p-4 sm:p-5">
+              <div className="relative w-full ">
                 <div
                   className={cn(
-                    "inline-flex max-w-full flex-col gap-1 bg-gradient-to-t from-black/55 via  to-transparent px-3 py-2",
+                    "inline-flex max-w-full flex-col gap-1  px-3 py-2",
                     "backdrop-blur-md transition",
                     "opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0",
                   )}
@@ -123,7 +143,7 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Always-visible hint */}
-                <div className="mt-3 flex items-center justify-between">
+                <div className="mt-3 flex items-center justify-between p-4">
                   <span className="text-xs text-white/50">View project</span>
                   <span className="text-sm text-white/70 transition group-hover:translate-x-0.5">
                     →

@@ -49,7 +49,7 @@ export default function HeroSimple({
   ctaHref = "/projects",
   secondaryCtaLabel = "View CV",
   secondaryCtaHref = "https://docs.google.com/document/d/1SkR03pjMKOKuxSXT2qC__iFoGoVD5mwR/edit?usp=sharing&ouid=107804991562370370216&rtpof=true&sd=true",
-  badgeLabel = "OPEN FOR PROJECTS",
+  badgeLabel = "CONTACT ME",
   badgeHref = "#contact",
 }: HeroSimpleProps) {
   return (

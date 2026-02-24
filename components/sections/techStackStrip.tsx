@@ -25,7 +25,7 @@ export default function TechStackStrip() {
   return (
     <section className="w-full bg-white py-16 border-y border-slate-200">
       <div className="max-w-6xl mx-auto px-6">
-        <p className="text-center text-sm uppercase tracking-widest text-blue-950 mb-10">
+        <p className="text-center text-sm uppercase tracking-widest text-blue-500 mb-10">
           Core Technologies
         </p>
 
@@ -35,7 +35,7 @@ export default function TechStackStrip() {
               key={tech.name}
               className={[
                 "group relative flex flex-col items-center justify-center",
-                "opacity-70 hover:opacity-100 transition",
+                "opacity-100 transition",
                 "focus-within:opacity-100",
               ].join(" ")}
             >
@@ -46,7 +46,7 @@ export default function TechStackStrip() {
                 height={56}
                 className={[
                   "object-contain w-14 h-14 sm:w-20 sm:h-20",
-                  "grayscale group-hover:grayscale-0 transition duration-300",
+                  "transition duration-300",
                   "group-hover:scale-[1.03]",
                 ].join(" ")}
               />

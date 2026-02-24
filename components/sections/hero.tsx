@@ -50,7 +50,7 @@ export default function HeroSimple({
   secondaryCtaLabel = "View CV",
   secondaryCtaHref = "https://docs.google.com/document/d/1SkR03pjMKOKuxSXT2qC__iFoGoVD5mwR/edit?usp=sharing&ouid=107804991562370370216&rtpof=true&sd=true",
   badgeLabel = "OPEN FOR PROJECTS",
-  badgeHref = "/#contact",
+  badgeHref = "#contact",
 }: HeroSimpleProps) {
   return (
     <section className={cn("relative w-full bg-black text-white", className)}>
@@ -64,6 +64,17 @@ export default function HeroSimple({
       <div className="absolute left-6 top-6 z-20">
         <Link
           href={badgeHref}
+          onClick={
+            badgeHref === "#contact"
+              ? (e) => {
+                  e.preventDefault();
+                  const el = document.getElementById("contact");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }
+              : undefined
+          }
           className={cn(
             "group relative grid place-items-center",
             "h-[86px] w-[86px] rounded-full border border-white/10",

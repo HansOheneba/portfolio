@@ -23,9 +23,9 @@ const technologies: Tech[] = [
 
 export default function TechStackStrip() {
   return (
-    <section className="py-16 border-y border-neutral-200 dark:border-neutral-800 w-full">
+    <section className="w-full bg-white py-16 border-y border-slate-200">
       <div className="max-w-6xl mx-auto px-6">
-        <p className="text-center text-sm uppercase tracking-widest text-neutral-500 mb-10">
+        <p className="text-center text-sm uppercase tracking-widest text-blue-950 mb-10">
           Core Technologies
         </p>
 
@@ -33,17 +33,34 @@ export default function TechStackStrip() {
           {technologies.map((tech) => (
             <div
               key={tech.name}
-              className="group flex flex-col items-center justify-center opacity-70 hover:opacity-100 transition relative"
+              className={[
+                "group relative flex flex-col items-center justify-center",
+                "opacity-70 hover:opacity-100 transition",
+                "focus-within:opacity-100",
+              ].join(" ")}
             >
               <Image
                 src={tech.logo}
                 alt={tech.name}
                 width={56}
                 height={56}
-                className="object-contain grayscale group-hover:grayscale-0 transition duration-300 w-14 h-14 sm:w-20 sm:h-20"
+                className={[
+                  "object-contain w-14 h-14 sm:w-20 sm:h-20",
+                  "grayscale group-hover:grayscale-0 transition duration-300",
+                  "group-hover:scale-[1.03]",
+                ].join(" ")}
               />
+
+              {/* Tooltip: keep the same behavior, but tuned for light mode */}
               <span
-                className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 rounded bg-black/80 px-3 py-1 text-xs text-white opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all whitespace-nowrap z-10 shadow-lg"
+                className={[
+                  "pointer-events-none absolute left-1/2 top-full mt-3 -translate-x-1/2",
+                  "rounded-xl border border-slate-200 bg-white/95 px-3 py-1.5",
+                  "text-xs text-slate-800 shadow-lg backdrop-blur",
+                  "opacity-0 translate-y-0",
+                  "group-hover:opacity-100 group-hover:translate-y-1",
+                  "transition-all whitespace-nowrap z-10",
+                ].join(" ")}
                 style={{ minWidth: "max-content" }}
               >
                 {tech.name}

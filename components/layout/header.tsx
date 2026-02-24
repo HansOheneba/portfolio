@@ -38,7 +38,7 @@ function cn(...classes: Array<string | false | null | undefined>) {
 }
 
 export default function SiteHeader({
-  name = "Hans Opoku",
+  name = "Hans Oheneba",
   logoSrc,
   subtitle = "Security First • Design Minded",
   nav = [

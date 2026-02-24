@@ -29,14 +29,23 @@ const projects: Project[] = [
     span: "normal",
     height: "short",
   },
-  {
-    slug: "wealth-overview-dashboard",
-    title: "Wealth Overview Dashboard",
-    summary: "Front-end dashboard UI with insights and clean data visuals.",
-    image: "/projects/wealth-dashboard.jpg",
-    span: "normal",
-    height: "short",
-  },
+//   {
+//     slug: "wealth-overview-dashboard",
+//     title: "Wealth Overview Dashboard",
+//     summary: "Front-end dashboard UI with insights and clean data visuals.",
+//     image: "/projects/wealth-dashboard.jpg",
+//     span: "normal",
+//     height: "short",
+//   },
+{
+  slug: "liftoff",
+  title: "Liftoff",
+  summary:
+    "Design-forward wedding website with RSVP management, photo gallery, event timeline, and seamless guest coordination.",
+  image: "/projects/lift.png",
+  span: "normal",
+  height: "short",
+},
   {
     slug: "bubble",
     title: "Bubble Bliss Cafe",
@@ -47,21 +56,12 @@ const projects: Project[] = [
     height: "short",
   },
   {
-    slug: "liftoff",
-    title: "Liftoff",
-    summary:
-      "Design-forward wedding website with RSVP management, photo gallery, event timeline, and seamless guest coordination.",
-    image: "/projects/lift.png",
-    span: "wide",
-    height: "short",
-  },
-  {
     slug: "hn",
     title: "H&M",
     summary:
       "Custom wedding platform with RSVP tracking, event scheduling, countdown timers, and a polished guest journey.",
     image: "/projects/hn.png",
-    span: "normal",
+    span: "wide",
     height: "short",
   },
 ];

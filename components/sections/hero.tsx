@@ -9,7 +9,7 @@ type HeroSimpleProps = {
   avatarSrc?: string;
   avatarAlt?: string;
 
-  headlineTop?: string; // "Hey, I’m Hans,"
+  headlineTop?: string; 
   headlineEmphasis?: string; // "a Software Artisan"
   headlineBottom?: string; // "based in Ghana"
 
@@ -36,7 +36,7 @@ export default function HeroSimple({
   className,
   avatarSrc = "/hero.jpg",
   avatarAlt = "Profile image",
-  headlineTop = "Hey, I’m Hans,",
+  headlineTop = "Hey, I’m Hans Oheneba,",
   headlineEmphasis = "a Software Artisan",
   headlineBottom = "based in Ghana",
   supportingLine = (

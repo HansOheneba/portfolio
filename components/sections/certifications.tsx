@@ -178,17 +178,17 @@ function CertCard({ cert }: { cert: Cert }) {
               <h3 className="min-w-0 break-words text-sm font-semibold text-gray-900 sm:truncate">
                 {cert.title}
               </h3>
-
+            </div>
+            <div className="flex gap-1">
               {cert.highlight ? (
-                <span className="shrink-0 rounded-full border border-indigo-200 bg-indigo-50 px-2 py-0.5 text-[10px] font-medium text-indigo-700">
+                <span className="shrink-0 rounded-full border border-indigo-200 bg-indigo-50 px-1 py-0.5 text-[10px] font-medium text-indigo-700">
                   ISC2 Member
                 </span>
               ) : null}
+              <p className="mt-1 text-xs text-gray-500">
+                {cert.issuer} • {cert.date}
+              </p>
             </div>
-
-            <p className="mt-1 text-xs text-gray-500">
-              {cert.issuer} • {cert.date}
-            </p>
           </div>
         </div>
 

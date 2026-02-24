@@ -20,18 +20,17 @@ type NavItem = {
 type SiteHeaderProps = {
   name?: string;
   logoSrc?: string;
-
-  // center links (to mimic: Home / About / Features)
   nav?: NavItem[];
-
-  // right CTA (to mimic: Get it Now ↗)
   ctaLabel?: string;
   ctaHref?: string;
-
   subtitle?: string;
-
-  // optional: show social icons
   showSocials?: boolean;
+
+  /**
+   * Which nav item should get a "spotlight" treatment.
+   * Defaults to "Work".
+   */
+  spotlightLabel?: string;
 };
 
 function cn(...classes: Array<string | false | null | undefined>) {
@@ -51,17 +50,16 @@ export default function SiteHeader({
   ctaLabel = "Get in touch",
   ctaHref = "#contact",
   showSocials = true,
+  spotlightLabel = "Work",
 }: SiteHeaderProps) {
   const router = useRouter();
   const pathname = usePathname();
   const [open, setOpen] = React.useState(false);
 
-  // Close mobile menu on route change
   React.useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
-  // Close on Esc
   React.useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") setOpen(false);
@@ -70,9 +68,6 @@ export default function SiteHeader({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  // Brand click behavior:
-  // - On home: scroll to top
-  // - On any other page: go home
   function handleBrandClick(e: React.MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
 
@@ -86,9 +81,6 @@ export default function SiteHeader({
     }
   }
 
-  // Hash links:
-  // - If on home: smooth scroll
-  // - If not on home: go home with hash (your Home useEffect handles the scroll)
   function handleNavClick(
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
@@ -96,7 +88,6 @@ export default function SiteHeader({
   ) {
     const closeMenu = opts?.closeMenu ?? false;
 
-    // external / page links should behave normally, but still close mobile menu
     if (!href.startsWith("#")) {
       if (closeMenu) setOpen(false);
       return;
@@ -117,13 +108,15 @@ export default function SiteHeader({
     if (closeMenu) setOpen(false);
   }
 
+  const isSpotlight = (item: NavItem) => item.label === spotlightLabel;
+
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* translucent look */}
       <div className="absolute inset-0 -z-10 border-b border-white/10 bg-black/35 backdrop-blur-xl" />
 
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        {/* Left: Brand (logo + name) */}
+        {/* Left: Brand */}
         <Link
           href="/"
           onClick={handleBrandClick}
@@ -157,7 +150,6 @@ export default function SiteHeader({
             </span>
           )}
 
-          {/* Make text responsive: subtitle hides on xs, clamps to avoid overflow */}
           <div className="min-w-0 leading-tight">
             <p className="truncate text-sm font-semibold text-white">{name}</p>
             <p className="hidden truncate text-xs text-white/60 sm:block">
@@ -171,16 +163,41 @@ export default function SiteHeader({
           <ul className="flex items-center gap-2 text-sm text-white/70">
             {nav.map((item, idx) => {
               const isHash = item.href.startsWith("#");
+              const spotlight = isSpotlight(item);
+
               return (
                 <li key={item.href} className="flex items-center">
                   <Link
                     href={item.href}
-                    className="rounded-lg px-2 py-1 transition hover:bg-white/5 hover:text-white"
                     onClick={
                       isHash ? (e) => handleNavClick(e, item.href) : undefined
                     }
+                    className={cn(
+                      "relative rounded-lg px-2 py-1 transition",
+                      spotlight
+                        ? "text-white"
+                        : "hover:bg-white/5 hover:text-white",
+
+                      // spotlight styling
+                      spotlight &&
+                        cn(
+                          "px-3",
+                          "bg-white/5 border border-white/10",
+                          "shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_0_28px_rgba(255,255,255,0.12)]",
+                          "animate-[workPulse_2.2s_ease-in-out_infinite]",
+                          "hover:bg-white/10 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.10),0_0_36px_rgba(255,255,255,0.16)]",
+                        ),
+                    )}
+                    aria-label={spotlight ? "Work (highlighted)" : item.label}
                   >
-                    {item.label}
+                    {/* subtle moving shimmer */}
+                    {spotlight ? (
+                      <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-lg">
+                        <span className="absolute -left-10 top-0 h-full w-24 rotate-12 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[workShine_2.6s_linear_infinite]" />
+                      </span>
+                    ) : null}
+
+                    <span className="relative z-10">{item.label}</span>
                   </Link>
 
                   {idx !== nav.length - 1 ? (
@@ -192,9 +209,8 @@ export default function SiteHeader({
           </ul>
         </nav>
 
-        {/* Right: socials + CTA (desktop) and hamburger (mobile) */}
+        {/* Right */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Socials: hide on very small screens, show from sm */}
           {showSocials ? (
             <div className="hidden items-center gap-2 sm:flex">
               <Link
@@ -217,7 +233,6 @@ export default function SiteHeader({
             </div>
           ) : null}
 
-          {/* CTA: full button on sm+, compact icon button on xs */}
           <Link
             href={ctaHref}
             className={cn(
@@ -257,7 +272,6 @@ export default function SiteHeader({
             />
           </Link>
 
-          {/* Hamburger: only on mobile */}
           <button
             type="button"
             className={cn(
@@ -279,7 +293,6 @@ export default function SiteHeader({
 
       {/* Mobile menu panel */}
       <div className={cn("md:hidden", open ? "block" : "hidden")}>
-        {/* overlay */}
         <button
           type="button"
           aria-label="Close menu overlay"
@@ -287,12 +300,13 @@ export default function SiteHeader({
           onClick={() => setOpen(false)}
         />
 
-        {/* sheet */}
         <div className="fixed left-0 right-0 top-[56px] z-50 mx-auto w-full max-w-6xl px-4 sm:px-6">
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/60 shadow-xl backdrop-blur-xl">
             <div className="flex flex-col gap-1 p-3">
               {nav.map((item) => {
                 const isHash = item.href.startsWith("#");
+                const spotlight = isSpotlight(item);
+
                 return (
                   <Link
                     key={item.href}
@@ -304,13 +318,25 @@ export default function SiteHeader({
                         : () => setOpen(false)
                     }
                     className={cn(
-                      "flex items-center justify-between rounded-xl px-3 py-3",
-                      "text-sm font-medium text-white/85 transition",
-                      "hover:bg-white/5 hover:text-white",
+                      "relative flex items-center justify-between rounded-xl px-3 py-3",
+                      "text-sm font-medium transition",
+                      spotlight
+                        ? cn(
+                            "text-white",
+                            "border border-white/10 bg-white/5",
+                            "shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_0_28px_rgba(255,255,255,0.12)]",
+                          )
+                        : "text-white/85 hover:bg-white/5 hover:text-white",
                     )}
                   >
-                    <span>{item.label}</span>
-                    <span className="text-white/30">→</span>
+                    {spotlight ? (
+                      <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl">
+                        <span className="absolute -left-10 top-0 h-full w-24 rotate-12 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[workShine_2.6s_linear_infinite]" />
+                      </span>
+                    ) : null}
+
+                    <span className="relative z-10">{item.label}</span>
+                    <span className="relative z-10 text-white/30">→</span>
                   </Link>
                 );
               })}
@@ -341,7 +367,6 @@ export default function SiteHeader({
                 </div>
               ) : null}
 
-              {/* Mobile CTA full-width */}
               <Link
                 href={ctaHref}
                 className={cn(
@@ -364,6 +389,38 @@ export default function SiteHeader({
           </div>
         </div>
       </div>
+
+      {/* local keyframes for the spotlight */}
+      <style jsx global>{`
+        @keyframes workPulse {
+          0%,
+          100% {
+            transform: translateY(0);
+            filter: brightness(1);
+          }
+          50% {
+            transform: translateY(-1px);
+            filter: brightness(1.08);
+          }
+        }
+
+        @keyframes workShine {
+          0% {
+            transform: translateX(-30px) rotate(12deg);
+            opacity: 0;
+          }
+          20% {
+            opacity: 1;
+          }
+          60% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateX(220px) rotate(12deg);
+            opacity: 0;
+          }
+        }
+      `}</style>
     </header>
   );
 }

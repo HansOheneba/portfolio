@@ -18,6 +18,7 @@ const technologies: Tech[] = [
   { name: "Hostinger", logo: "/logos/hostinger.jpeg" },
   { name: "Python", logo: "/logos/python.svg" },
   { name: "MySQL", logo: "/logos/sql.svg" },
+  { name: "PHP", logo: "/logos/php.jpeg" },
 ];
 
 export default function TechStackStrip() {

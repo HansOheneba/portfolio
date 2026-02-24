@@ -3,125 +3,181 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowLeft,
-  faArrowRight,
-  faArrowUpRightFromSquare,
-} from "@fortawesome/free-solid-svg-icons";
+import { ExternalLink } from "lucide-react";
 
-type HeroSlide = {
-  id: string;
-  imageSrc: string;
-  alt?: string;
-};
+type HeroSimpleProps = {
+  avatarSrc?: string;
+  avatarAlt?: string;
 
-type HeroCarouselProps = {
-  title?: string;
-  subline?: React.ReactNode;
+  headlineTop?: string; // "Hey, I’m Hans,"
+  headlineEmphasis?: string; // "a Software Artisan"
+  headlineBottom?: string; // "based in Ghana"
+
+  supportingLine?: React.ReactNode;
+
   ctaLabel?: string;
   ctaHref?: string;
+
   secondaryCtaLabel?: string;
   secondaryCtaHref?: string;
-  slides?: HeroSlide[];
+
+  // floating badge
+  badgeLabel?: string; // "OPEN FOR PROJECTS"
+  badgeHref?: string;
+
   className?: string;
-  loop?: boolean;
 };
 
 function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function HeroCarousel({
+export default function HeroSimple({
   className,
-  title = "Hey, I am Hans.",
-  subline = (
+  avatarSrc = "/hero.jpg",
+  avatarAlt = "Profile image",
+  headlineTop = "Hey, I’m Hans,",
+  headlineEmphasis = "a Software Artisan",
+  headlineBottom = "based in Ghana",
+  supportingLine = (
     <>
-      A software artisan based in{" "}
-      <span className="text-yellow-400 font-bold">Ghana</span> with a background
-      in cybersecurity, now focused on crafting secure and performant
-      experiences.
+      I build secure, polished web products with a cybersecurity mindset,
+      focused on performance, clarity, and strong user experience.
     </>
   ),
   ctaLabel = "View work",
   ctaHref = "/projects",
   secondaryCtaLabel = "View CV",
   secondaryCtaHref = "https://docs.google.com/document/d/1SkR03pjMKOKuxSXT2qC__iFoGoVD5mwR/edit?usp=sharing&ouid=107804991562370370216&rtpof=true&sd=true",
-  slides = [
-    { id: "s1", imageSrc: "/projects/proj1.png", alt: "Hero slide 1" },
-    { id: "s2", imageSrc: "/projects/proj2.png", alt: "Hero slide 2" },
-    { id: "s3", imageSrc: "/projects/proj3.png", alt: "Hero slide 3" },
-  ],
-  loop = true,
-}: HeroCarouselProps) {
-  const autoplay = React.useRef(
-    Autoplay({
-      delay: 4500,
-      stopOnInteraction: false,
-      stopOnMouseEnter: false,
-    }),
-  );
-
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop, align: "start" }, [
-    autoplay.current,
-  ]);
-
-  const [canPrev, setCanPrev] = React.useState(false);
-  const [canNext, setCanNext] = React.useState(false);
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
-
-  const goToPrev = React.useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const goToNext = React.useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
-
-  React.useEffect(() => {
-    if (!emblaApi) return;
-
-    const onSelect = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
-      setCanPrev(emblaApi.canScrollPrev());
-      setCanNext(emblaApi.canScrollNext());
-    };
-
-    onSelect();
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-
-    emblaApi.plugins().autoplay?.play();
-
-    return () => {
-      emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
-    };
-  }, [emblaApi]);
-
+  badgeLabel = "OPEN FOR PROJECTS",
+  badgeHref = "/#contact",
+}: HeroSimpleProps) {
   return (
-    <section className={cn("w-full", className)}>
-      <div className="mx-auto w-full py-5 max-w-6xl px-4 sm:px-6">
-        {/* Title block ABOVE carousel */}
-        <div className="py-10 sm:py-14">
-          <div className="max-w-2xl">
-            <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
-              {title}
+    <section className={cn("relative w-full bg-black text-white", className)}>
+      {/* subtle background */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(900px_500px_at_50%_-150px,rgba(255,255,255,0.10),transparent_60%)]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
+      </div>
+
+      {/* floating circular badge */}
+      <div className="absolute left-6 top-6 z-20">
+        <Link
+          href={badgeHref}
+          className={cn(
+            "group relative grid place-items-center",
+            "h-[86px] w-[86px] rounded-full border border-white/10",
+            "bg-white/5 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.55)]",
+            "transition hover:bg-white/10",
+          )}
+          aria-label={badgeLabel}
+        >
+          {/* spinning ring text */}
+          <span
+            className={cn(
+              "absolute inset-0 grid place-items-center",
+              "animate-[spin_14s_linear_infinite]",
+            )}
+          >
+            <svg
+              viewBox="0 0 100 100"
+              className="h-[86px] w-[86px] opacity-90"
+              aria-hidden="true"
+            >
+              <defs>
+                <path
+                  id="circlePath"
+                  d="M 50, 50 m -34, 0 a 34,34 0 1,1 68,0 a 34,34 0 1,1 -68,0"
+                />
+              </defs>
+              <text
+                fill="rgba(255,255,255,0.75)"
+                fontSize="9"
+                letterSpacing="3"
+              >
+                <textPath
+                  href="#circlePath"
+                  startOffset="50%"
+                  textAnchor="middle"
+                >
+                  {`${badgeLabel} • ${badgeLabel} •`}
+                </textPath>
+              </text>
+            </svg>
+          </span>
+
+          {/* center button */}
+          <span
+            className={cn(
+              "relative z-10 grid place-items-center",
+              "h-12 w-12 rounded-full bg-white text-black",
+              "transition group-hover:scale-[1.03]",
+            )}
+          >
+            <ExternalLink className="h-5 w-5" />
+          </span>
+        </Link>
+      </div>
+
+      <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6">
+        <div className="py-16 sm:py-20">
+          <div className="mx-auto max-w-3xl text-center">
+            {/* top image (you said you will put an image here) */}
+            <div className="mx-auto mb-10 grid place-items-center">
+              <div
+                className={cn(
+                  "relative h-16 w-16 overflow-hidden rounded-full",
+                  "border border-white/10 bg-white/5",
+                )}
+              >
+                <Image
+                  src={avatarSrc}
+                  alt={avatarAlt}
+                  fill
+                  sizes="64px"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+
+            {/* headline */}
+            <h1 className="leading-[0.95] tracking-tight">
+              <span className="block text-[44px] font-semibold sm:text-[64px] md:text-[78px]">
+                {headlineTop}
+              </span>
+
+              <span className="block text-[44px] sm:text-[64px] md:text-[78px]">
+                <span className="font-serif italic font-medium">
+                  {headlineEmphasis}
+                </span>
+              </span>
+
+              <span className="block text-[44px] font-semibold sm:text-[64px] md:text-[78px]">
+                {headlineBottom.split(" ").slice(0, -1).join(" ")}{" "}
+                <span className="font-serif italic font-medium">
+                  {headlineBottom.split(" ").slice(-1)[0]}
+                </span>
+              </span>
             </h1>
-            <p className="mt-3 text-sm leading-relaxed text-white/70 sm:text-base">
-              {subline}
+
+            {/* supporting line */}
+            <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/70 sm:text-base">
+              {supportingLine}
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-3">
+            {/* CTAs */}
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href={ctaHref}
                 className={cn(
-                  "inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2",
-                  "text-sm font-medium text-black transition hover:bg-white/90",
+                  "inline-flex items-center justify-center rounded-2xl",
+                  "bg-white px-5 py-2.5 text-sm font-medium text-black",
+                  "transition hover:bg-white/90",
                 )}
               >
                 {ctaLabel}
-                <FontAwesomeIcon
-                  icon={faArrowUpRightFromSquare}
-                  className="h-3.5 w-3.5"
-                />
+                <ExternalLink className="ml-2 h-4 w-4" />
               </Link>
 
               <Link
@@ -129,9 +185,10 @@ export default function HeroCarousel({
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  "inline-flex items-center gap-2 rounded-xl",
-                  "border border-white/10 bg-white/5 px-4 py-2",
-                  "text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white",
+                  "inline-flex items-center justify-center rounded-2xl",
+                  "border border-white/10 bg-white/5 px-5 py-2.5",
+                  "text-sm font-medium text-white/80 transition",
+                  "hover:bg-white/10 hover:text-white",
                 )}
               >
                 {secondaryCtaLabel}
@@ -139,88 +196,6 @@ export default function HeroCarousel({
             </div>
           </div>
         </div>
-
-        {/* Carousel */}
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/30 shadow-xl backdrop-blur-xl">
-          <div className="embla">
-            <div className="embla__viewport" ref={emblaRef}>
-              <div className="embla__container flex">
-                {slides.map((s) => (
-                  <div
-                    key={s.id}
-                    className={cn(
-                      "embla__slide relative min-w-0 flex-[0_0_100%]",
-                      "h-[240px] sm:h-[320px] md:h-[420px]",
-                    )}
-                  >
-                    <Image
-                      src={s.imageSrc}
-                      alt={s.alt ?? ""}
-                      fill
-                      priority={s.id === slides[0]?.id}
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Arrows */}
-            <div className="pointer-events-none absolute inset-x-0 top-1/2 z-20 flex -translate-y-1/2 items-center justify-between px-3 sm:px-4">
-              <button
-                type="button"
-                onClick={goToPrev}
-                disabled={!canPrev}
-                aria-label="Previous slide"
-                className={cn(
-                  "pointer-events-auto inline-flex items-center justify-center rounded-2xl p-2",
-                  "border border-white/10 bg-black/40 text-white/80 backdrop-blur-md transition",
-                  "hover:bg-black/55 hover:text-white disabled:opacity-40",
-                )}
-              >
-                <FontAwesomeIcon icon={faArrowLeft} className="h-4 w-4" />
-              </button>
-
-              <button
-                type="button"
-                onClick={goToNext}
-                disabled={!canNext}
-                aria-label="Next slide"
-                className={cn(
-                  "pointer-events-auto inline-flex items-center justify-center rounded-2xl p-2",
-                  "border border-white/10 bg-black/40 text-white/80 backdrop-blur-md transition",
-                  "hover:bg-black/55 hover:text-white disabled:opacity-40",
-                )}
-              >
-                <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
-              </button>
-            </div>
-
-            {/* Dots */}
-            <div className="absolute bottom-4 left-0 right-0 z-20">
-              <div className="flex items-center justify-center gap-2">
-                {slides.map((_, i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    aria-label={`Go to slide ${i + 1}`}
-                    onClick={() => emblaApi?.scrollTo(i)}
-                    className={cn(
-                      "h-1.5 w-6 rounded-full transition",
-                      i === selectedIndex
-                        ? "bg-white/80"
-                        : "bg-white/25 hover:bg-white/40",
-                    )}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p className="mt-3 text-center text-xs text-white/45">
-          Swipe on mobile, or use the arrows.
-        </p>
       </div>
     </section>
   );

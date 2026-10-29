@@ -24,7 +24,7 @@ export default function HavenCaseStudy() {
         { label: "Tools", value: "Filters, compare, calculator" },
         { label: "Booking", value: "Viewing scheduler" },
       ]}
-      stack={["Next.js 16", "TypeScript", "Tailwind CSS 4", "Framer Motion", "Bodoni Moda + Hanken Grotesk"]}
+      stack={["Next.js 16", "TypeScript", "Tailwind CSS 4", "Framer Motion", "DM Serif Display + Manrope"]}
       sections={[
         {
           title: "The experience",

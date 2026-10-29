@@ -12,10 +12,10 @@ export default function HavenCaseStudy() {
     <CaseStudy
       eyebrow="Concept • Real estate • Interactive"
       title="Haven & Co."
-      summary="A concept site for a premium Accra estate agency. I wanted browsing homes to feel like walking through them, so the site leans on motion, big photography and tools buyers actually use."
+      summary="A concept site for a premium Accra estate agency, shot like a film: a warm, dark palette of laterite clay, aged wine and lamplight amber, high-contrast Bodoni headlines, and photography graded like stills. Underneath it is a toolkit buyers actually use."
       image="/projects/haven.png"
       links={[
-        { label: "Visit the live site", href: "https://est.hansopoku.com" },
+        { label: "Visit the live site", href: "https://haven.hansopoku.com" },
         { label: "Source on GitHub", href: "https://github.com/HansOheneba/Est" },
       ]}
       facts={[
@@ -24,14 +24,14 @@ export default function HavenCaseStudy() {
         { label: "Tools", value: "Filters, compare, calculator" },
         { label: "Booking", value: "Viewing scheduler" },
       ]}
-      stack={["Next.js 16", "TypeScript", "Tailwind CSS 4", "Framer Motion"]}
+      stack={["Next.js 16", "TypeScript", "Tailwind CSS 4", "Framer Motion", "Bodoni Moda + Hanken Grotesk"]}
       sections={[
         {
           title: "The experience",
           items: [
             {
-              title: "Cinematic hero and search",
-              body: "The headline rises word by word while the hero photo zooms and rounds off as you scroll. A Buy/Rent search sends visitors straight into filtered results.",
+              title: "A film-title opening",
+              body: "Letterbox bars pull away as a dusk shot settles into focus, then the headline rises word by word. A Buy/Rent search sends visitors straight into filtered results.",
             },
             {
               title: "Pinned horizontal gallery",

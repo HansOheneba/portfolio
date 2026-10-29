@@ -15,7 +15,7 @@ export default function AsankaCaseStudy() {
       summary="A concept site for a modern Ghanaian kitchen and bar in Osu. Dark, warm and loud, it is built to make people hungry and then get them booked in."
       image="/projects/asanka.png"
       links={[
-        { label: "Visit the live site", href: "https://rest.hansopoku.com" },
+        { label: "Visit the live site", href: "https://asanka.hansopoku.com" },
         { label: "Source on GitHub", href: "https://github.com/HansOheneba/rest" },
       ]}
       facts={[
@@ -24,7 +24,7 @@ export default function AsankaCaseStudy() {
         { label: "Extras", value: "Pre-order to your table" },
         { label: "Live info", value: "Open-now status" },
       ]}
-      stack={["Next.js 16", "TypeScript", "Tailwind CSS 4", "Framer Motion"]}
+      stack={["Next.js 16", "TypeScript", "Tailwind CSS 4", "Framer Motion", "Shrikhand + Bricolage Grotesque"]}
       sections={[
         {
           title: "The experience",

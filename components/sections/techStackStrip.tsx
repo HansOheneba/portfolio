@@ -19,6 +19,8 @@ const technologies: Tech[] = [
   { name: "Python", logo: "/logos/python.svg" },
   { name: "MySQL", logo: "/logos/sql.svg" },
   { name: "PHP", logo: "/logos/php.jpeg" },
+  { name: "Paystack", logo: "/logos/paystack.svg" },
+  { name: "Resend", logo: "/logos/resend.svg" },
 ];
 
 export default function TechStackStrip() {

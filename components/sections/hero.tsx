@@ -10,16 +10,13 @@ type HeroSimpleProps = {
   avatarAlt?: string;
 
   headlineTop?: string; 
-  headlineEmphasis?: string; // "a Software Artisan"
+  headlineEmphasis?: string; // "a Full-Stack Developer"
   headlineBottom?: string; // "based in Ghana"
 
   supportingLine?: React.ReactNode;
 
   ctaLabel?: string;
   ctaHref?: string;
-
-  secondaryCtaLabel?: string;
-  secondaryCtaHref?: string;
 
   // floating badge
   badgeLabel?: string; // "OPEN FOR PROJECTS"
@@ -37,18 +34,17 @@ export default function HeroSimple({
   avatarSrc = "/hero.jpg",
   avatarAlt = "Profile image",
   headlineTop = "Hey, I’m Hans Opoku,",
-  headlineEmphasis = "a Software Artisan",
+  headlineEmphasis = "a Full-Stack Developer",
   headlineBottom = "based in Ghana",
   supportingLine = (
     <>
-      I build secure, polished web products with a cybersecurity mindset,
-      focused on performance, clarity, and strong user experience.
+      I design and build fast, polished websites and web apps, from
+      storefronts and listing sites to the admin dashboards that run them.
+      Built with a security-first mindset and handed over ready to grow.
     </>
   ),
   ctaLabel = "View work",
   ctaHref = "/projects",
-  secondaryCtaLabel = "View CV",
-  secondaryCtaHref = "https://docs.google.com/document/d/1SkR03pjMKOKuxSXT2qC__iFoGoVD5mwR/edit?usp=sharing&ouid=107804991562370370216&rtpof=true&sd=true",
   badgeLabel = "CONTACT ME",
   badgeHref = "#contact",
 }: HeroSimpleProps) {
@@ -153,18 +149,18 @@ export default function HeroSimple({
             </div>
 
             {/* headline */}
-            <h1 className="leading-[0.95] tracking-tight">
-              <span className="block text-[44px] font-semibold sm:text-[64px] md:text-[78px]">
+            <h1 className="-mx-4 leading-[0.95] tracking-tight sm:-mx-16 md:-mx-24">
+              <span className="block text-[44px] font-semibold sm:text-[64px] md:text-[72px]">
                 {headlineTop}
               </span>
 
-              <span className="block text-[44px] sm:text-[64px] md:text-[78px]">
+              <span className="block text-[44px] sm:text-[64px] md:text-[72px]">
                 <span className="font-serif italic font-medium">
                   {headlineEmphasis}
                 </span>
               </span>
 
-              <span className="block text-[44px] font-semibold sm:text-[64px] md:text-[78px]">
+              <span className="block text-[44px] font-semibold sm:text-[64px] md:text-[72px]">
                 {headlineBottom.split(" ").slice(0, -1).join(" ")}{" "}
                 <span className="font-serif italic font-medium">
                   {headlineBottom.split(" ").slice(-1)[0]}
@@ -191,19 +187,6 @@ export default function HeroSimple({
                 <ExternalLink className="ml-2 h-4 w-4" />
               </Link>
 
-              <Link
-                href={secondaryCtaHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  "inline-flex items-center justify-center rounded-2xl",
-                  "border border-white/10 bg-white/5 px-5 py-2.5",
-                  "text-sm font-medium text-white/80 transition",
-                  "hover:bg-white/10 hover:text-white",
-                )}
-              >
-                {secondaryCtaLabel}
-              </Link>
             </div>
           </div>
         </div>

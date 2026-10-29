@@ -16,14 +16,17 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Hans Opoku | Front-End Engineer & Security-Focused Developer",
+    default: "Hans Opoku | Full-Stack Web Developer",
     template: "%s | Hans Opoku",
   },
   description:
-    "Personal website of Hans Opoku. I am building modern front-end systems with a strong focus on security, performance, and scalable architecture.",
+    "Hans Opoku is a full-stack web developer in Accra, Ghana, building e-commerce stores, real estate and listing sites, and the admin dashboards behind them.",
   keywords: [
     "Hans Opoku",
-    "Front-End Engineer",
+    "Full-Stack Developer",
+    "Freelance Web Developer Ghana",
+    "E-commerce Website",
+    "Real Estate Website",
     "React Developer",
     "Next.js Developer",
     "TypeScript",
@@ -34,16 +37,16 @@ export const metadata: Metadata = {
   authors: [{ name: "Hans Opoku" }],
   creator: "Hans Opoku",
   openGraph: {
-    title: "Hans Opoku | Front-End Engineer & Security-Focused Developer",
+    title: "Hans Opoku | Full-Stack Web Developer",
     description:
-      "I am designing secure, high-performance web applications using React, Next.js, and TypeScript.",
+      "Websites, online stores and admin dashboards built with Next.js and TypeScript.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hans Opoku | Front-End Engineer & Security-Focused Developer",
+    title: "Hans Opoku | Full-Stack Web Developer",
     description:
-      "Designing secure, high-performance front-end systems with modern web technologies.",
+      "Websites, online stores and admin dashboards built with Next.js and TypeScript.",
   },
 };
 

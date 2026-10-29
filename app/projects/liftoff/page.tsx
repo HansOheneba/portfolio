@@ -2,9 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
 
 function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
@@ -71,14 +69,9 @@ export default function LiftoffWeddingCaseStudy() {
             confident, organized, and smooth across devices.
           </p>
 
-          <Link
-            href="https://liftoff.hansoheneba.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl bg-white text-[#070A12] px-5 py-3 font-medium hover:opacity-90 transition"
-          >
-            View Live Website <ExternalLink size={16} />
-          </Link>
+          <span className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white/60">
+            Event has passed, site no longer hosted
+          </span>
         </motion.div>
 
         {/* Tech Stack */}

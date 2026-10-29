@@ -47,6 +47,11 @@ const timeline: TimelineEntry[] = [
     time: "Jan 2026 — Present",
     title: "Front-End Engineer • Celerey",
     body: "Building responsive interfaces, maintaining design consistency, and improving performance across key user journeys.",
+  },
+  {
+    time: "2023 — Present",
+    title: "Freelance Full-Stack Developer",
+    body: "Designing and shipping complete web products for clients: storefronts with payments and delivery tracking, real estate listings, charity campaigns, and the admin dashboards their teams use every day.",
     cta: {
       label: "View my work",
       href: "/projects",
@@ -151,7 +156,7 @@ export default function HansTimelineFlowbite() {
         <div className="mb-6">
           <h2 className="text-xl font-semibold text-white">My timeline</h2>
           <p className="mt-1 text-sm text-white/60">
-            Where my journey began and where I am headed. 
+            Where I started, and what I am building now.
           </p>
         </div>
 

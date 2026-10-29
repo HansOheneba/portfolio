@@ -6,7 +6,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useMemo } from "react";
 import Image from "next/image";
 
-const LIVE_URL = "https://myairbanhomes.com";
+const LIVE_URL = "https://airban.hansopoku.com";
+const ORIGINAL_URL = "https://myairbanhomes.com";
 
 type TechItem = {
   name: string;
@@ -260,9 +261,9 @@ export default function AirbanHomesCaseStudy() {
 
           <p className="text-lg text-white/70 max-w-3xl leading-relaxed">
             I built Airban Homes as a full-stack real estate and product
-            platform where users could browse properties and doors, submit
-            enquiries, and where internal staff could manage content through a
-            custom CMS.
+            platform where buyers browse properties and doors, submit
+            enquiries, and staff manage everything through a custom admin
+            panel. In 2026 I rebuilt it from the ground up on a modern stack.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -272,7 +273,15 @@ export default function AirbanHomesCaseStudy() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl bg-white text-[#070A12] px-4 py-2.5 font-medium shadow-sm hover:opacity-90 transition"
             >
-              View Live Site <ExternalLink size={16} />
+              View the 2026 rebuild <ExternalLink size={16} />
+            </Link>
+            <Link
+              href={ORIGINAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/[0.04] px-4 py-2.5 font-medium text-white/85 hover:bg-white/[0.08] transition"
+            >
+              Original site <ExternalLink size={16} />
             </Link>
 
           </div>
@@ -468,6 +477,41 @@ export default function AirbanHomesCaseStudy() {
           </div>
         </motion.div>
 
+        {/* 2026 Rebuild */}
+        <motion.div
+          initial={reduceMotion ? undefined : { opacity: 0, y: 16 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="mt-14 space-y-6"
+        >
+          <h2 className="text-2xl font-semibold">The 2026 Rebuild</h2>
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              {
+                title: "One modern codebase",
+                body: "Rebuilt on Next.js 16 with server components and server actions, so pages load fast and the separate API layer is no longer needed.",
+              },
+              {
+                title: "Admin panel, simplified",
+                body: "A protected admin area where staff sign in to add, edit and remove properties and doors, with changes going live instantly.",
+              },
+              {
+                title: "Built to sell",
+                body: "Location and price search on the homepage, a doors catalog with a cart for quotes, property galleries, a news section and a downloadable brochure.",
+              },
+            ].map((d) => (
+              <div
+                key={d.title}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-6"
+              >
+                <h3 className="font-semibold text-lg">{d.title}</h3>
+                <p className="mt-3 text-white/70 leading-relaxed">{d.body}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
         {/* Outcome */}
         <motion.div
           initial={reduceMotion ? undefined : { opacity: 0, y: 16 }}
@@ -491,7 +535,7 @@ export default function AirbanHomesCaseStudy() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-xl bg-white text-[#070A12] px-4 py-2.5 font-medium shadow-sm hover:opacity-90 transition"
           >
-            Visit myairbanhomes.com <ExternalLink size={16} />
+            Visit airban.hansopoku.com <ExternalLink size={16} />
           </Link>
         </motion.div>
       </div>

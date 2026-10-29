@@ -39,13 +39,14 @@ Best regards,
     <section id="contact" className="scroll-mt-32 bg-black py-24 mx-auto">
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
         <h2 className="text-3xl font-semibold text-white sm:text-4xl">
-          Beautiful Interfaces. Bulletproof Foundations.
+          Have a project in mind?
         </h2>
 
         <p className="mt-4 text-white/65">
-          I craft front-end experiences that look effortless and think
-          defensively. If you are partnering, or exploring something
-          ambitious, I am ready to build it with you.
+          Whether it is a hotel or restaurant site, a property listing
+          platform, or an online store with its own dashboard, I can take it
+          from first sketch to live launch. Tell me what you need and I will
+          get back to you within a day.
         </p>
         <div className="mt-10 flex items-center justify-center gap-3">
           <a

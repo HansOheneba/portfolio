@@ -13,12 +13,34 @@ type Project = {
 
 const projects: Project[] = [
   {
-    slug: "airban",
-    title: "Airban Homes",
-    summary: "E-commerce flows with strong data integrity and admin tooling.",
-    image: "/projects/airban.png",
+    slug: "unapologetic",
+    title: "Unapologetic",
+    summary:
+      "Streetwear store with Paystack checkout, a full admin dashboard and a rider delivery app.",
+    image: "/projects/unapologetic.png",
     colSpan: "lg:col-span-2",
     rowSpan: "lg:row-span-2",
+  },
+  {
+    slug: "airban",
+    title: "Airban Homes",
+    summary:
+      "Real estate and doors platform with property search and a staff admin panel.",
+    image: "/projects/airban-v2.png",
+    colSpan: "lg:col-span-2",
+  },
+  {
+    slug: "samaa",
+    title: "Samaa Charity Projects",
+    summary: "Cause-led charity site with donations and an event campaign.",
+    image: "/projects/samaa.png",
+  },
+  {
+    slug: "bubble",
+    title: "Bubble Bliss Cafe",
+    summary:
+      "Cafe ordering with cart, checkout, Hubtel SMS and an admin dashboard.",
+    image: "/projects/bb.png",
   },
   {
     slug: "midnight",
@@ -33,13 +55,6 @@ const projects: Project[] = [
     summary:
       "Design-forward wedding website with RSVP management and guest coordination.",
     image: "/projects/lift.png",
-  },
-  {
-    slug: "bubble",
-    title: "Bubble Bliss Cafe",
-    summary:
-      "Ordering flow with cart edits, structured checkout, Hubtel SMS and admin dashboard.",
-    image: "/projects/bb.png",
     colSpan: "lg:col-span-2",
   },
   {
@@ -67,9 +82,9 @@ export default function ProjectsPage() {
             </h1>
 
             <p className="max-w-2xl text-slate-600">
-              A selection of front-end and security-minded builds. Some
-              additional projects are not displayed here due to privacy and
-              confidentiality constraints.
+              Stores, listing platforms, campaign sites and the dashboards
+              behind them. A few client projects are not shown here for
+              confidentiality reasons.
             </p>
           </div>
 
@@ -77,7 +92,7 @@ export default function ProjectsPage() {
             href="/#contact"
             className="inline-flex w-fit items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-900"
           >
-            Reach out
+            Start a project
           </Link>
         </div>
 

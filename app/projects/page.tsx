@@ -8,7 +8,7 @@ import { getProject, legacy, type Project } from "@/lib/projects";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Restaurant, real estate, e-commerce and non-profit websites by Hans Opoku, with the admin dashboards behind them.",
+    "Restaurant, property, e-commerce and charity websites by Hans Opoku.",
 };
 
 function cn(...classes: Array<string | false | null | undefined>) {
@@ -52,16 +52,6 @@ function ProjectTile({ project, className }: { project: Project; className: stri
         className="object-cover object-top transition duration-700 ease-out group-hover:scale-[1.04]"
       />
 
-      {/* Always-visible status chip keeps the tile honest about live vs concept */}
-      <span
-        className={cn(
-          "absolute left-4 top-4 z-10 rounded-full px-3 py-1 text-[11px] font-semibold backdrop-blur",
-          project.status === "Live" ? "bg-emerald-400/90 text-emerald-950" : "bg-white/85 text-neutral-900",
-        )}
-      >
-        {project.status}
-      </span>
-
       {/* Overlay: always visible on touch, revealed on hover elsewhere */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition duration-500 [@media(hover:hover)]:opacity-0 group-hover:!opacity-100 group-focus-visible:!opacity-100" />
       <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 text-white transition duration-500 ease-out [@media(hover:hover)]:translate-y-4 [@media(hover:hover)]:opacity-0 group-hover:!translate-y-0 group-hover:!opacity-100 group-focus-visible:!translate-y-0 group-focus-visible:!opacity-100 sm:p-6">
@@ -102,13 +92,13 @@ export default function ProjectsPage() {
           {/* Intro */}
           <section className={cn("flex flex-col justify-between rounded-[28px] bg-[#f3ede2] p-7 text-neutral-900 sm:p-9", place.intro)}>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#b5523b]">Selected work</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#b5523b]">Work</p>
               <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">
-                Websites that get people booked, buying and through the door.
+                Sites that bring in bookings and sales.
               </h1>
               <p className="mt-5 max-w-md text-base leading-relaxed text-neutral-600">
-                Restaurants, property agencies, online stores and non-profits, designed and built end to end,
-                with the admin tools that keep them running.
+                Restaurants, property, shops and charities. I design and build each one, and most come with
+                an admin the owner runs.
               </p>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -122,15 +112,13 @@ export default function ProjectsPage() {
           </section>
 
           <Bar tone="bg-[#f3a712] text-neutral-900" className={place.newBar}>
-            <span>New · Hospitality &amp; property</span>
-            <span className="text-sm font-medium opacity-70">2 concept builds</span>
+            <span>Hospitality &amp; property</span>
           </Bar>
           <ProjectTile project={p("asanka")} className={place.asanka} />
           <ProjectTile project={p("haven")} className={place.haven} />
 
           <Bar tone="bg-[#e4572e] text-white" className={place.clientBar}>
             <span>Client work</span>
-            <span className="text-sm font-medium opacity-80">Live sites</span>
           </Bar>
           <ProjectTile project={p("unapologetic")} className={place.unapologetic} />
           <ProjectTile project={p("airban")} className={place.airban} />
@@ -140,16 +128,15 @@ export default function ProjectsPage() {
           {/* What sets the builds apart */}
           <section className={cn("relative flex flex-col justify-between overflow-hidden rounded-[28px] bg-[#12355b] p-7 text-white sm:p-9", place.dashboards)}>
             <div className="max-w-2xl">
-              <h2 className="text-2xl font-semibold sm:text-3xl">Built to run the business, not just to look good.</h2>
+              <h2 className="text-2xl font-semibold sm:text-3xl">Built to run the business.</h2>
               <p className="mt-3 leading-relaxed text-white/75">
-                Most of my client builds ship with the tools behind the site: orders and rider dispatch for
-                Unapologetic, a listings admin for Airban, Mobile Money and tracking for Raj, enquiries straight
-                into Google Sheets for Stacey. Owners update their own site without calling a developer.
+                Unapologetic dispatches riders from its admin. Airban staff edit their own listings. Raj takes
+                Mobile Money. Stacey&apos;s enquiries land in a Google Sheet.
               </p>
             </div>
             <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
               <div className="flex flex-wrap gap-2">
-                {["Admin dashboards", "Paystack & Mobile Money", "Bookings & enquiries", "Delivery tracking"].map((t) => (
+                {["Admin dashboards", "Payments", "Bookings", "Delivery tracking"].map((t) => (
                   <span key={t} className="rounded-full bg-white/10 px-3 py-1.5 text-xs font-medium ring-1 ring-white/15">
                     {t}
                   </span>
@@ -168,8 +155,7 @@ export default function ProjectsPage() {
         {/* Legacy row, styled like a partner strip */}
         <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-6">
           <Bar tone="bg-white/10 text-white" className="min-h-[96px] sm:col-span-2">
-            <span>Legacy</span>
-            <span className="text-sm font-medium text-white/60">Events passed or sites retired</span>
+            <span>Older work</span>
           </Bar>
           {legacy.map((l) => (
             <Link

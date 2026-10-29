@@ -41,7 +41,7 @@ export const projects: Project[] = [
     status: "Concept",
     tagline:
       "A restaurant site built to make people hungry, then get them to a confirmed table in four steps.",
-    cardSummary: "Cursor-led menu, pre-orders and a live reservation flow.",
+    cardSummary: "Menu, pre-orders and table bookings.",
     thumb: "/projects/asanka.png",
     url: "https://asanka.hansopoku.com",
     source: "https://github.com/HansOheneba/rest",
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     status: "Concept",
     tagline:
       "A property site shot like a film, with the tools buyers actually use to shortlist a home and book a viewing.",
-    cardSummary: "Neighbourhood explorer, room tour, live filters and a mortgage calculator.",
+    cardSummary: "Listings, room tour and a mortgage calculator.",
     thumb: "/projects/haven.png",
     url: "https://haven.hansopoku.com",
     source: "https://github.com/HansOheneba/Est",
@@ -182,7 +182,7 @@ export const projects: Project[] = [
     status: "Live",
     tagline:
       "A storefront, an admin dashboard and a delivery app for a streetwear brand, all running from one system.",
-    cardSummary: "Paystack checkout, a full admin dashboard and a rider delivery app.",
+    cardSummary: "Store, admin dashboard and rider app.",
     thumb: "/projects/unapologetic.png",
     url: "https://unapologeticnm.com",
     accent: "#1a1a1a",
@@ -243,7 +243,7 @@ export const projects: Project[] = [
     status: "Live",
     tagline:
       "A property and doors platform with a staff admin, first built in 2023 and rebuilt from the ground up in 2026.",
-    cardSummary: "Property search, a doors catalogue and a staff admin panel.",
+    cardSummary: "Property search, doors catalogue and a staff admin.",
     thumb: "/projects/airban-v2.png",
     url: "https://airban.hansopoku.com",
     accent: "#1c5aa6",
@@ -302,7 +302,7 @@ export const projects: Project[] = [
     status: "Live",
     tagline:
       "An online store built for how Ghana shops: Mobile Money checkout, nationwide delivery and orders you can track.",
-    cardSummary: "Mobile Money checkout, nationwide delivery, tracking and invoices.",
+    cardSummary: "Mobile Money checkout and order tracking.",
     thumb: "/projects/raj.png",
     url: "https://raj.hansopoku.com",
     accent: "#b4652a",
@@ -362,7 +362,7 @@ export const projects: Project[] = [
     status: "Live",
     tagline:
       "A story-led charity site that explains four causes in seconds and turns visitors into donors, volunteers and guests.",
-    cardSummary: "Cause pages, donations and a fundraiser campaign with a live countdown.",
+    cardSummary: "Cause pages, donations and an event countdown.",
     thumb: "/projects/samaa.png",
     url: "https://samaa.hansopoku.com",
     accent: "#b3122e",
@@ -410,7 +410,7 @@ export const projects: Project[] = [
     status: "Live",
     tagline:
       "A hopeful, credible home for a youth development foundation: programmes, impact, alumni stories and events.",
-    cardSummary: "Programmes, animated impact stats, alumni stories and an events calendar.",
+    cardSummary: "Programmes, impact numbers and events.",
     thumb: "/projects/aequitas.png",
     url: "https://aequitas.hansopoku.com",
     accent: "#1fa3d9",
@@ -457,7 +457,7 @@ export const projects: Project[] = [
     status: "Live",
     tagline:
       "A speaker's website that turns visitors into booking requests and subscribers, with leads landing in a spreadsheet the team already uses.",
-    cardSummary: "Booking enquiries and a newsletter wired into Google Sheets.",
+    cardSummary: "Speaker bookings that land in a Google Sheet.",
     thumb: "/projects/stacey.png",
     url: "https://www.staceyelsie.com",
     accent: "#d3962b",
@@ -502,10 +502,10 @@ export const projects: Project[] = [
 ];
 
 export const legacy = [
-  { slug: "bubble", title: "Bubble Bliss Cafe", summary: "Cafe ordering with cart, checkout and Hubtel SMS." },
-  { slug: "midnight", title: "Midnight Madness", summary: "Event ticketing, checkout and admin dashboard." },
-  { slug: "liftoff", title: "Liftoff", summary: "Wedding website with RSVP management." },
-  { slug: "hn", title: "H&M", summary: "Custom wedding platform with RSVP tracking." },
+  { slug: "bubble", title: "Bubble Bliss Cafe", summary: "Cafe ordering with SMS updates." },
+  { slug: "midnight", title: "Midnight Madness", summary: "Event tickets and checkout." },
+  { slug: "liftoff", title: "Liftoff", summary: "Wedding site with RSVPs." },
+  { slug: "hn", title: "H&M", summary: "Wedding site with RSVPs." },
 ];
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);

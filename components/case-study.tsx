@@ -61,11 +61,6 @@ export default function CaseStudy({ project, next }: { project: Project; next: P
             <span className="h-2 w-2 rounded-full" style={{ background: p.accent }} />
             {p.label}
           </span>
-          <span
-            className={`rounded-full px-3 py-1.5 ${p.status === "Live" ? "bg-emerald-100 text-emerald-800" : "bg-neutral-900 text-white"}`}
-          >
-            {p.status === "Live" ? "Live client site" : "Concept build"}
-          </span>
         </div>
 
         <h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">{p.title}</h1>

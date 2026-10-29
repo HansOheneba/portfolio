@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Sankofa (Adinkra): "go back and get it" -->
+  <rect width="64" height="64" rx="14" fill="#0A0A0A"/>
+  <g transform="translate(4.5 1.5) scale(0.86)" fill="none" stroke="#E8B04B" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 50 C21 42 11 34 11 23 C11 14 18 9 25 11 C31 13 31 21 26 23 C22 25 18.5 21.5 21 18"/>
+    <path d="M32 50 C43 42 53 34 53 23 C53 14 46 9 39 11 C33 13 33 21 38 23 C42 25 45.5 21.5 43 18"/>
+    <path d="M32 50 L32 56"/>
+    <path d="M32 56 C29 56 26.5 58 27 60.5"/>
+    <path d="M32 56 C35 56 37.5 58 37 60.5"/>
+    <path d="M32 15 L32 27"/>
+  </g>
+</svg>

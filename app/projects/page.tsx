@@ -97,8 +97,8 @@ export default function ProjectsPage() {
                 Sites that bring in bookings and sales.
               </h1>
               <p className="mt-5 max-w-md text-base leading-relaxed text-neutral-600">
-                Restaurants, property, shops and charities. I design and build each one, and most come with
-                an admin the owner runs.
+                For restaurants, property firms, shops and charities. You get the site and the tools to run it
+                yourself.
               </p>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-3">

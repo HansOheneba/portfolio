@@ -92,33 +92,33 @@ export default function ProjectsPage() {
           {/* Intro */}
           <section className={cn("flex flex-col justify-between rounded-[28px] bg-[#f3ede2] p-7 text-neutral-900 sm:p-9", place.intro)}>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#b5523b]">Work</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#b5523b]">What I do</p>
               <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">
-                Sites that bring in bookings and sales.
+                Websites built around how your business works.
               </h1>
               <p className="mt-5 max-w-md text-base leading-relaxed text-neutral-600">
-                I build for restaurants, property firms, shops and charities. You get the site, plus an admin
-                to update it yourself.
+                I design the site your customers see, then build the admin your team runs it from. Menus,
+                listings, orders and bookings stay in your hands.
               </p>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <Link href="/#contact" className="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-700">
-                Start a project <ArrowUpRight className="h-4 w-4" />
+                Tell me what you&apos;re building <ArrowUpRight className="h-4 w-4" />
               </Link>
               <a href="https://wa.me/233592076527" target="_blank" rel="noopener noreferrer" className="rounded-full border border-neutral-900/15 px-5 py-3 text-sm font-semibold transition hover:bg-neutral-900/5">
-                WhatsApp me
+                Chat on WhatsApp
               </a>
             </div>
           </section>
 
           <Bar tone="bg-[#f3a712] text-neutral-900" className={place.newBar}>
-            <span>Hospitality &amp; property</span>
+            <span>Hospitality &amp; real estate</span>
           </Bar>
           <ProjectTile project={p("asanka")} className={place.asanka} />
           <ProjectTile project={p("haven")} className={place.haven} />
 
           <Bar tone="bg-[#e4572e] text-white" className={place.clientBar}>
-            <span>Client work</span>
+            <span>Selected projects</span>
           </Bar>
           <ProjectTile project={p("unapologetic")} className={place.unapologetic} />
           <ProjectTile project={p("airban")} className={place.airban} />
@@ -128,15 +128,16 @@ export default function ProjectsPage() {
           {/* What sets the builds apart */}
           <section className={cn("relative flex flex-col justify-between overflow-hidden rounded-[28px] bg-[#12355b] p-7 text-white sm:p-9", place.dashboards)}>
             <div className="max-w-2xl">
-              <h2 className="text-2xl font-semibold sm:text-3xl">Built to run the business.</h2>
+              <h2 className="text-2xl font-semibold sm:text-3xl">The website is half the job.</h2>
               <p className="mt-3 leading-relaxed text-white/75">
-                Unapologetic dispatches riders from its admin. Airban staff edit their own listings. Raj takes
-                Mobile Money. Stacey&apos;s enquiries land in a Google Sheet.
+                The other half is what runs behind it. Unapologetic assigns delivery riders from its dashboard.
+                Airban&apos;s team updates listings without calling me. Raj Kollections takes Mobile Money at
+                checkout, and Stacey&apos;s booking requests go straight into a Google Sheet.
               </p>
             </div>
             <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
               <div className="flex flex-wrap gap-2">
-                {["Admin dashboards", "Payments", "Bookings", "Delivery tracking"].map((t) => (
+                {["Admin dashboards", "Mobile Money & Paystack", "Bookings & enquiries", "Delivery tracking"].map((t) => (
                   <span key={t} className="rounded-full bg-white/10 px-3 py-1.5 text-xs font-medium ring-1 ring-white/15">
                     {t}
                   </span>

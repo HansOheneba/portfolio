@@ -41,7 +41,7 @@ export const projects: Project[] = [
     status: "Concept",
     tagline:
       "A restaurant site built to make people hungry, then get them to a confirmed table in four steps.",
-    cardSummary: "Menu, pre-orders and table bookings.",
+    cardSummary: "Make people hungry before they arrive.",
     thumb: "/projects/asanka.png",
     url: "https://asanka.hansopoku.com",
     source: "https://github.com/HansOheneba/rest",
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     status: "Concept",
     tagline:
       "A property site shot like a film, with the tools buyers actually use to shortlist a home and book a viewing.",
-    cardSummary: "Listings, room tour and a mortgage calculator.",
+    cardSummary: "See the area, tour the rooms, book a viewing.",
     thumb: "/projects/haven.png",
     url: "https://haven.hansopoku.com",
     source: "https://github.com/HansOheneba/Est",
@@ -182,7 +182,7 @@ export const projects: Project[] = [
     status: "Live",
     tagline:
       "A storefront, an admin dashboard and a delivery app for a streetwear brand, all running from one system.",
-    cardSummary: "Store, admin dashboard and rider app.",
+    cardSummary: "A streetwear store with its own voice, and the back office behind it.",
     thumb: "/projects/unapologetic.png",
     url: "https://unapologeticnm.com",
     accent: "#1a1a1a",
@@ -243,7 +243,7 @@ export const projects: Project[] = [
     status: "Live",
     tagline:
       "A property and doors platform with a staff admin, first built in 2023 and rebuilt from the ground up in 2026.",
-    cardSummary: "Property search, doors catalogue and a staff admin.",
+    cardSummary: "Homes and doors, with an admin the team runs itself.",
     thumb: "/projects/airban-v2.png",
     url: "https://airban.hansopoku.com",
     accent: "#1c5aa6",
@@ -302,7 +302,7 @@ export const projects: Project[] = [
     status: "Live",
     tagline:
       "An online store built for how Ghana shops: Mobile Money checkout, nationwide delivery and orders you can track.",
-    cardSummary: "Mobile Money checkout and order tracking.",
+    cardSummary: "Pay with Mobile Money, then track it to the door.",
     thumb: "/projects/raj.png",
     url: "https://raj.hansopoku.com",
     accent: "#b4652a",
@@ -362,7 +362,7 @@ export const projects: Project[] = [
     status: "Live",
     tagline:
       "A story-led charity site that explains four causes in seconds and turns visitors into donors, volunteers and guests.",
-    cardSummary: "Cause pages, donations and an event countdown.",
+    cardSummary: "Four causes, one clear way to give.",
     thumb: "/projects/samaa.png",
     url: "https://samaa.hansopoku.com",
     accent: "#b3122e",
@@ -410,7 +410,7 @@ export const projects: Project[] = [
     status: "Live",
     tagline:
       "A hopeful, credible home for a youth development foundation: programmes, impact, alumni stories and events.",
-    cardSummary: "Programmes, impact numbers and events.",
+    cardSummary: "A youth programme, told through its graduates.",
     thumb: "/projects/aequitas.png",
     url: "https://aequitas.hansopoku.com",
     accent: "#1fa3d9",
@@ -457,7 +457,7 @@ export const projects: Project[] = [
     status: "Live",
     tagline:
       "A speaker's website that turns visitors into booking requests and subscribers, with leads landing in a spreadsheet the team already uses.",
-    cardSummary: "Speaker bookings that land in a Google Sheet.",
+    cardSummary: "Speaking requests that land straight in a spreadsheet.",
     thumb: "/projects/stacey.png",
     url: "https://www.staceyelsie.com",
     accent: "#d3962b",

@@ -36,7 +36,7 @@ export default function HeroSimple({
   className,
   avatarSrc = "/hero.jpg",
   avatarAlt = "Profile image",
-  headlineTop = "Hey, I’m Hans Oheneba,",
+  headlineTop = "Hey, I’m Hans Opoku,",
   headlineEmphasis = "a Software Artisan",
   headlineBottom = "based in Ghana",
   supportingLine = (
